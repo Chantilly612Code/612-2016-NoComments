@@ -1,12 +1,6 @@
-/*
- * IRegisterIO.h
- *
- *  Created on: Jul 29, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/IRegisterIO.h"
 #ifndef SRC_IREGISTERIO_H_
-#define SRC_IREGISTERIO_H_
+#define SRC_IREGISTERIO_H_ 
 
 #include <stdint.h>
 
@@ -20,4 +14,4 @@ public:
     virtual bool Shutdown() = 0;
 };
 
-#endif /* SRC_IREGISTERIO_H_ */
+#endif

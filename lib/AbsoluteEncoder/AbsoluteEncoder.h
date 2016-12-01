@@ -1,13 +1,14 @@
+# 1 "./lib/AbsoluteEncoder/AbsoluteEncoder.h"
 #include <WPILib.h>
 #include <AnalogInput.h>
 
-#pragma once
+       
 
 class AbsoluteEncoder : public AnalogInput
 {
 public:
     AbsoluteEncoder(int channel);
     ~AbsoluteEncoder();
-	double GetVoltageRound();
-	double PIDGet();
+ double GetVoltageRound();
+ double PIDGet();
 };

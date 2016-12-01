@@ -1,4 +1,5 @@
-#pragma once
+# 1 "./lib/PIDControl/PIDControl.h"
+       
 
 #include "Base.h"
 #include "Controller.h"
@@ -15,14 +16,7 @@
 #include <queue>
 
 class PIDOutput;
-
-/**
- * Class implements a PID Control Loop.
- *
- * Creates a separate thread which reads the given PIDSource and takes
- * care of the integral calculations, as well as writing the given
- * PIDOutput
- */
+# 26 "./lib/PIDControl/PIDControl.h"
 class PIDControl : public LiveWindowSendable,
                       public PIDInterface,
                       public ITableListener {
@@ -85,26 +79,26 @@ class PIDControl : public LiveWindowSendable,
   virtual double CalculateFeedForward();
 
  private:
-  float m_P;              // factor for "proportional" control
-  float m_I;              // factor for "integral" control
-  float m_D;              // factor for "derivative" control
-  float m_F;              // factor for "feed forward" control
-  float m_maximumOutput = 1.0;  // |maximum output|
-  float m_minimumOutput = -1.0;  // |minimum output|
-  float m_maximumInput = 0;   // maximum input - limit setpoint to this
-  float m_minimumInput = 0;   // minimum input - limit setpoint to this
-  bool m_continuous = false;      // do the endpoints wrap around? eg. Absolute encoder
-  bool m_inverted = false; // is the output signal inverted? eg. -1 -> 1 and 1 -> -1
-  bool m_enabled = false;  // is the pid controller enabled
-  float m_prevError = 0;  // the prior error (used to compute velocity)
-  double m_totalError = 0;  // the sum of the errors for use in the integral calc
+  float m_P;
+  float m_I;
+  float m_D;
+  float m_F;
+  float m_maximumOutput = 1.0;
+  float m_minimumOutput = -1.0;
+  float m_maximumInput = 0;
+  float m_minimumInput = 0;
+  bool m_continuous = false;
+  bool m_inverted = false;
+  bool m_enabled = false;
+  float m_prevError = 0;
+  double m_totalError = 0;
   enum {
     kAbsoluteTolerance,
     kPercentTolerance,
     kNoTolerance
   } m_toleranceType = kNoTolerance;
 
-  // the percetage or absolute error that is considered on target.
+
   float m_tolerance = 0.05;
   float m_setpoint = 0;
   float m_prevSetpoint = 0;
@@ -112,7 +106,7 @@ class PIDControl : public LiveWindowSendable,
   float m_result = 0;
   float m_period;
 
-  // Length of buffer for averaging for tolerances.
+
   std::atomic<unsigned> m_bufLength{1};
   std::queue<double> m_buf;
   double m_bufTotal = 0;

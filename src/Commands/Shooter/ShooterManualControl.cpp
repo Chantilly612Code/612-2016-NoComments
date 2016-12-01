@@ -1,3 +1,4 @@
+# 1 "./src/Commands/Shooter/ShooterManualControl.cpp"
 #include <Commands/Shooter/ShooterManualControl.h>
 #include "Robot.h"
 
@@ -8,8 +9,8 @@ ShooterManualControl::ShooterManualControl()
 
 void ShooterManualControl::Initialize()
 {
-	Robot::shooterwheels->Disable();
-	Robot::shooterwheels->StartManual();
+ Robot::shooterwheels->Disable();
+ Robot::shooterwheels->StartManual();
 }
 
 void ShooterManualControl::Execute()
@@ -34,32 +35,32 @@ void ShooterManualControl::Execute()
 
 bool ShooterManualControl::IsFinished()
 {
-	return false;
+ return false;
 }
 
 void ShooterManualControl::End()
 {
-	printf("Ending");
-	Stop();
+ printf("Ending");
+ Stop();
 }
 
 void ShooterManualControl::Interrupted()
 {
-	printf("Interrupted");
+ printf("Interrupted");
     End();
 }
 
 void ShooterManualControl::Fire()
 {
-	Robot::shooterwheels->ManualSet(-1);
+ Robot::shooterwheels->ManualSet(-1);
 }
 
 void ShooterManualControl::Intake()
 {
-	Robot::shooterwheels->ManualSet(1);
+ Robot::shooterwheels->ManualSet(1);
 }
 
 void ShooterManualControl::Stop()
 {
-	Robot::shooterwheels->ManualSet(0);
+ Robot::shooterwheels->ManualSet(0);
 }

@@ -1,10 +1,4 @@
-/*
- * InertialDataIntegrator.cpp
- *
- *  Created on: Jul 30, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/InertialDataIntegrator.cpp"
 #include "InertialDataIntegrator.h"
 
 InertialDataIntegrator::InertialDataIntegrator() {
@@ -62,4 +56,3 @@ float InertialDataIntegrator::GetDisplacementY() {
 float InertialDataIntegrator::GetDisplacementZ() {
      return 0;
 }
-

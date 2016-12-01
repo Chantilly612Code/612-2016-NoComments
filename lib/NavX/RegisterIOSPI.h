@@ -1,12 +1,6 @@
-/*
- * RegisterIOSPI.h
- *
- *  Created on: Jul 29, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/RegisterIOSPI.h"
 #ifndef SRC_REGISTERIOSPI_H_
-#define SRC_REGISTERIOSPI_H_
+#define SRC_REGISTERIOSPI_H_ 
 
 #include "RegisterIO.h"
 #include <WPILib.h>
@@ -27,4 +21,4 @@ private:
     uint8_t rx_buffer[MAX_SPI_MSG_LENGTH];
 };
 
-#endif /* SRC_REGISTERIOSPI_H_ */
+#endif

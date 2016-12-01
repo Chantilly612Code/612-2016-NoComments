@@ -1,12 +1,6 @@
-/*
- * IIOCompleteNotification.h
- *
- *  Created on: Jul 29, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/IIOCompleteNotification.h"
 #ifndef SRC_IIOCOMPLETENOTIFICATION_H_
-#define SRC_IIOCOMPLETENOTIFICATION_H_
+#define SRC_IIOCOMPLETENOTIFICATION_H_ 
 
 #include <stdint.h>
 
@@ -34,4 +28,4 @@ public:
     virtual void SetBoardState( BoardState& board_state) = 0;
 };
 
-#endif /* SRC_IIOCOMPLETENOTIFICATION_H_ */
+#endif

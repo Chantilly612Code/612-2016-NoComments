@@ -1,4 +1,5 @@
-#pragma once
+# 1 "./src/Commands/Autonomous/Autonomous.h"
+       
 
 #include <Commands/CommandGroup.h>
 #include "Sequences/AutoAlign.h"
@@ -13,5 +14,5 @@
 class Autonomous: public CommandGroup
 {
 public:
-	Autonomous();
+ Autonomous();
 };

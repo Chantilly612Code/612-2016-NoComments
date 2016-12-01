@@ -1,12 +1,6 @@
-/*
- * IBoardCapabilities.h
- *
- *  Created on: Jul 29, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/IBoardCapabilities.h"
 #ifndef SRC_IBOARDCAPABILITIES_H_
-#define SRC_IBOARDCAPABILITIES_H_
+#define SRC_IBOARDCAPABILITIES_H_ 
 
 class IBoardCapabilities {
 public:
@@ -16,4 +10,4 @@ public:
     virtual bool IsDisplacementSupported() = 0;
 };
 
-#endif /* SRC_IBOARDCAPABILITIES_H_ */
+#endif

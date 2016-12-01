@@ -1,4 +1,5 @@
-#pragma once
+# 1 "./src/Commands/Shooter/ShooterManualControl.h"
+       
 
 #include "Commands/Command.h"
 #include "WPILib.h"
@@ -11,11 +12,10 @@ private:
     void Intake();
     void Stop();
 public:
-	ShooterManualControl();
-	void Initialize();
-	void Execute();
-	bool IsFinished();
-	void End();
-	void Interrupted();
+ ShooterManualControl();
+ void Initialize();
+ void Execute();
+ bool IsFinished();
+ void End();
+ void Interrupted();
 };
-

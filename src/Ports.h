@@ -1,52 +1,53 @@
-#pragma once
+# 1 "./src/Ports.h"
+       
 
 namespace IDS
 {
-	// Drivetrain Talons
-	const int driveFL					= 2;  // CAN ID
-	const int driveRL					= 1;  // CAN ID
-	const int driveFR					= 3;  // CAN ID
-	const int driveRR					= 4;  // CAN ID
 
-	// Drivetrain shifters
-	const int shifterL					= 3;  // PWM Port
-	const int shifterR 					= 2;  // PWM Port
+ const int driveFL = 2;
+ const int driveRL = 1;
+ const int driveFR = 3;
+ const int driveRR = 4;
 
-	// Drive encoders
-	const int driveEncoderL1			= 0;  // Digital Input Pin
-	const int driveEncoderL2			= 1;  // Digital Input Pin
-	const int driveEncoderR1			= 2;  // Digital Input Pin
-	const int driveEncoderR2			= 3;  // Digital Input Pin
 
-	// Shooter Misc
-	const int shooterActuator			= 6;  // PWM Port
-	const int shooterPotentiometer 		= 0;  // Analog Input
+ const int shifterL = 3;
+ const int shifterR = 2;
 
-	const int shooterRotate 			= 5;  // CAN ID
-	const int shooterIR 				= 1;  // Analog Input
-	const int shooterActuatorLSwitch 	= 4;  // Digital Input
-	const int shooterActuatorLSwitch2	= 5;  // Digital Input
-	const int shooterActuatorMotor	 	= 5;  // CANTalon
-	const int shooterSolenoid1			= 0;  // PCM Port
-	const int shooterSolenoid2			= 1;  // PCM Port
 
-	// Shooter Flywheels
-	const int shooterFlyL 				= 6;  // CAN ID
-	const int shooterFlyR 				= 7;  // CAN ID
+ const int driveEncoderL1 = 0;
+ const int driveEncoderL2 = 1;
+ const int driveEncoderR1 = 2;
+ const int driveEncoderR2 = 3;
 
-	// Shooter Hall Effects
-	const int shooterHallL 				= 6;  // Digital Input
-	const int shooterHallR 				= 7;  // Digital Input
 
-	// Arm
-	const int armRotateMotor 			= 2;  //CAN ID
+ const int shooterActuator = 6;
+ const int shooterPotentiometer = 0;
 
-	//Spike
-	const int shooterSpike 				= 0;  //Relay
+ const int shooterRotate = 5;
+ const int shooterIR = 1;
+ const int shooterActuatorLSwitch = 4;
+ const int shooterActuatorLSwitch2 = 5;
+ const int shooterActuatorMotor = 5;
+ const int shooterSolenoid1 = 0;
+ const int shooterSolenoid2 = 1;
 
-	//Jetson
-	const int jetsonI                   = 8;
-	const int jetsonO                   = 9;
 
-	//const SPI::Port NavX                = 0; //TODO Change depending on how NavX is wired!
+ const int shooterFlyL = 6;
+ const int shooterFlyR = 7;
+
+
+ const int shooterHallL = 6;
+ const int shooterHallR = 7;
+
+
+ const int armRotateMotor = 2;
+
+
+ const int shooterSpike = 0;
+
+
+ const int jetsonI = 8;
+ const int jetsonO = 9;
+
+
 }

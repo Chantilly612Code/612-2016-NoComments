@@ -1,3 +1,4 @@
+# 1 "./lib/HallEffect/PIDEdgeCounter.cpp"
 #include "PIDEdgeCounter.h"
 
 PIDEdgeCounter::PIDEdgeCounter(int channel) : Counter(channel)
@@ -5,7 +6,7 @@ PIDEdgeCounter::PIDEdgeCounter(int channel) : Counter(channel)
     this->SetUpSourceEdge(true, false);
 }
 
-double PIDEdgeCounter::PIDGet() 
+double PIDEdgeCounter::PIDGet()
 {
     return 1.0 / GetPeriod();
 }

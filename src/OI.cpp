@@ -1,3 +1,4 @@
+# 1 "./src/OI.cpp"
 #include "OI.h"
 #include "Commands/Drive/DriveJoystick.h"
 #include "Commands/Drive/SetGear.h"
@@ -7,31 +8,31 @@
 
 OI::OI()
 {
-	//GUNNER
-	gunner.reset(new Joystick(1));
 
-	shoot.reset(new JoystickButton(gunner.get(), 1)); //a button
-	shoot.get()->WhenPressed(new Shoot(true));
-	shoot.get()->WhenReleased(new Shoot(false));
+ gunner.reset(new Joystick(1));
 
-	align.reset(new JoystickButton(gunner.get(), 4)); //y button
+ shoot.reset(new JoystickButton(gunner.get(), 1));
+ shoot.get()->WhenPressed(new Shoot(true));
+ shoot.get()->WhenReleased(new Shoot(false));
 
-	//DRIVER
-	driver.reset(new Joystick(0));
+ align.reset(new JoystickButton(gunner.get(), 4));
 
-	lowGear.reset(new JoystickButton(driver.get(), 5));
-	lowGear->WhenPressed(new SetGear(Shifter::LOW));
 
-	//highGear.reset(new JoystickButton(driver.get(), 6));
-	//highGear->WhenPressed(new SetGear(Shifter::HIGH));
+ driver.reset(new Joystick(0));
+
+ lowGear.reset(new JoystickButton(driver.get(), 5));
+ lowGear->WhenPressed(new SetGear(Shifter::LOW));
+
+
+
 }
 
 std::shared_ptr<Joystick> OI::getDriver()
 {
-	return driver;
+ return driver;
 }
 
 std::shared_ptr<Joystick> OI::getGunner()
 {
-	return gunner;
+ return gunner;
 }

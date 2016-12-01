@@ -1,4 +1,5 @@
-#pragma once
+# 1 "./src/Commands/Shooter/Shoot.h"
+       
 
 #include <Commands/Command.h>
 #include <Robot.h>
@@ -6,17 +7,16 @@
 
 class Shoot: public Command {
 private:
-	bool push;
-	DoubleSolenoid* solenoid;
-	int iterations;
-	const float SECONDS_TO_WAIT = .5;
+ bool push;
+ DoubleSolenoid* solenoid;
+ int iterations;
+ const float SECONDS_TO_WAIT = .5;
 
 public:
-	Shoot(bool push, float timeout = 0);
-	void Initialize();
-	void Execute();
-	bool IsFinished();
-	void End();
-	void Interrupted();
+ Shoot(bool push, float timeout = 0);
+ void Initialize();
+ void Execute();
+ bool IsFinished();
+ void End();
+ void Interrupted();
 };
-

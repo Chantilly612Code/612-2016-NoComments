@@ -1,5 +1,6 @@
+# 1 "./src/Commands/Autonomous/Sequences/AutoAlign.h"
 #ifndef AUTO_ALIGN_H
-#define AUTO_ALIGN_H
+#define AUTO_ALIGN_H 
 
 #include "HorizontalAlign.h"
 #include "HorizontalFind.h"
@@ -10,7 +11,7 @@
 class AutoAlign: public CommandGroup
 {
 public:
-	AutoAlign(HorizontalFind::Direction dir);
+ AutoAlign(HorizontalFind::Direction dir);
 };
 
 #endif

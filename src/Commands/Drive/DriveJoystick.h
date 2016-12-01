@@ -1,4 +1,5 @@
-#pragma once
+# 1 "./src/Commands/Drive/DriveJoystick.h"
+       
 
 #include <Commands/Subsystem.h>
 #include "Robot.h"
@@ -6,21 +7,19 @@
 class DriveJoystick: public Command
 {
 public:
-	DriveJoystick();
+ DriveJoystick();
 
-	void Initialize();
-	void Execute();
-	bool IsFinished();
-	void End();
-	void Interrupted();
+ void Initialize();
+ void Execute();
+ bool IsFinished();
+ void End();
+ void Interrupted();
 
 private:
-	float XDEADZONE = 0.1; //constant
-	float JDEADZONE = 0.1; //also constant
-	//these may be adjusted
+ float XDEADZONE = 0.1;
+ float JDEADZONE = 0.1;
 
-	float leftPos; //also joystickY
-	float rightPos; //also joystickTwist
+
+ float leftPos;
+ float rightPos;
 };
-
-

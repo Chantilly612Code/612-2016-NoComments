@@ -1,3 +1,4 @@
+# 1 "./src/Robot.cpp"
 #include "Robot.h"
 #include <Commands/Autonomous/Sequences/HorizontalFind.h>
 #include "Commands/Drive/DriveJoystick.h"
@@ -15,26 +16,26 @@ std::shared_ptr<Vision> Robot::vision;
 
 bool Robot::inverted;
 
-//#define BROWNOUT
+
 
 void Robot::RobotInit()
 {
-	RobotMap::init();
+ RobotMap::init();
 
-	drivetrain.reset(new Drivetrain());
-	shooterwheels.reset(new ShooterWheels());
-	shooterrotation.reset(new ShooterRotation());
-	vision.reset(new Vision());
-	shifter.reset(new Shifter());
-	oi.reset(new OI());
+ drivetrain.reset(new Drivetrain());
+ shooterwheels.reset(new ShooterWheels());
+ shooterrotation.reset(new ShooterRotation());
+ vision.reset(new Vision());
+ shifter.reset(new Shifter());
+ oi.reset(new OI());
 
-	RobotMap::NavX->ZeroYaw();
-	printf("Zeroed Yaw in init!\n");
-	InitSmartDashboard();
+ RobotMap::NavX->ZeroYaw();
+ printf("Zeroed Yaw in init!\n");
+ InitSmartDashboard();
 
-	autonomousCommand.reset(new Autonomous());
-	drivejoystick.reset(new DriveJoystick());
-	align.reset(new AutoAlign(HorizontalFind::LEFT));
+ autonomousCommand.reset(new Autonomous());
+ drivejoystick.reset(new DriveJoystick());
+ align.reset(new AutoAlign(HorizontalFind::LEFT));
 }
 
 void Robot::DisabledInit()
@@ -45,63 +46,63 @@ void Robot::DisabledInit()
 void
 Robot::DisabledPeriodic()
 {
-	Scheduler::GetInstance()->Run();
+ Scheduler::GetInstance()->Run();
 
 #ifdef BROWNOUT
-	if(DriverStation::GetInstance().IsSysBrownedOut())
-		printf("ERROR: System brownout!\n");
-	}
+ if(DriverStation::GetInstance().IsSysBrownedOut())
+  printf("ERROR: System brownout!\n");
+ }
 #endif
 }
 
 void Robot::AutonomousInit()
 {
-	shifter->Set(Shifter::LOW);
+ shifter->Set(Shifter::LOW);
 
-	RobotMap::NavX->Reset();
-	printf("Info: Reset NavX\n");
+ RobotMap::NavX->Reset();
+ printf("Info: Reset NavX\n");
 
-	if (autonomousCommand.get() != nullptr)
-		autonomousCommand->Start();
+ if (autonomousCommand.get() != nullptr)
+  autonomousCommand->Start();
 }
 
 void Robot::AutonomousPeriodic()
 {
-	vision->PullValues(); //Keep this above the scheduler
-	Scheduler::GetInstance()->Run();
-	PeriodicSmartDashboard();
+ vision->PullValues();
+ Scheduler::GetInstance()->Run();
+ PeriodicSmartDashboard();
 
 #ifdef BROWNOUT
-	if(DriverStation::GetInstance().IsSysBrownedOut())
-		printf("ERROR: System brownout!\n");
-	}
+ if(DriverStation::GetInstance().IsSysBrownedOut())
+  printf("ERROR: System brownout!\n");
+ }
 #endif
 }
 
 void Robot::TeleopInit()
 {
-	if (autonomousCommand.get() != nullptr)
-		autonomousCommand->Cancel();
+ if (autonomousCommand.get() != nullptr)
+  autonomousCommand->Cancel();
 
-	RobotMap::NavX->Reset();
-	printf("Info: Reset NavX\n");
+ RobotMap::NavX->Reset();
+ printf("Info: Reset NavX\n");
 
-	drivejoystick->Start();
-	shifter->Set(Shifter::LOW);
+ drivejoystick->Start();
+ shifter->Set(Shifter::LOW);
 }
 
 
 
 void Robot::TeleopPeriodic()
 {
-	vision->PullValues(); //Keep this above the scheduler
-	Scheduler::GetInstance()->Run();
+ vision->PullValues();
+ Scheduler::GetInstance()->Run();
     PeriodicSmartDashboard();
 
 #ifdef BROWNOUT
-	if(DriverStation::GetInstance().IsSysBrownedOut())
-		printf("ERROR: System brownout!\n");
-	}
+ if(DriverStation::GetInstance().IsSysBrownedOut())
+  printf("ERROR: System brownout!\n");
+ }
 #endif
 }
 
@@ -112,50 +113,50 @@ void Robot::TestInit()
 
 void Robot::TestPeriodic()
 {
-	lw->Run();
-	if(DriverStation::GetInstance().IsSysBrownedOut())
-	{
-		printf("ERROR: System brownout!\n");
-	}
+ lw->Run();
+ if(DriverStation::GetInstance().IsSysBrownedOut())
+ {
+  printf("ERROR: System brownout!\n");
+ }
 }
 
 void Robot::InitSmartDashboard()
 {
 
-	SmartDashboard::PutNumber("Shooter Angle", 0.0);
+ SmartDashboard::PutNumber("Shooter Angle", 0.0);
 
-	//Commands for debugging
-	shooterrotation->SmartDashboardOutput();
-	SmartDashboard::PutData("Stop Drivetrain", new DriveSet(0.0f, 0.0f));
-	//Auto Align
-	SmartDashboard::PutData("Auto Right", new AutoAlign(HorizontalFind::Direction::RIGHT));
-	SmartDashboard::PutData("Auto Left", new AutoAlign(HorizontalFind::Direction::LEFT));
 
-	SmartDashboard::PutNumber("dP", 0.004);
-	SmartDashboard::PutNumber("dI", 0);
-	SmartDashboard::PutNumber("dD", 0);
+ shooterrotation->SmartDashboardOutput();
+ SmartDashboard::PutData("Stop Drivetrain", new DriveSet(0.0f, 0.0f));
+
+ SmartDashboard::PutData("Auto Right", new AutoAlign(HorizontalFind::Direction::RIGHT));
+ SmartDashboard::PutData("Auto Left", new AutoAlign(HorizontalFind::Direction::LEFT));
+
+ SmartDashboard::PutNumber("dP", 0.004);
+ SmartDashboard::PutNumber("dI", 0);
+ SmartDashboard::PutNumber("dD", 0);
 }
 
 void Robot::PeriodicSmartDashboard()
 {
-	Robot::shooterrotation->SmartDashboardOutput();
+ Robot::shooterrotation->SmartDashboardOutput();
 
-	SmartDashboard::PutNumber("Shooter Absolute Encoder", RobotMap::shooterPotentiometer->GetVoltage());
-	SmartDashboard::PutNumber("Shooter Absolute Encoder Rounded", RobotMap::shooterPotentiometer->GetVoltageRound());
+ SmartDashboard::PutNumber("Shooter Absolute Encoder", RobotMap::shooterPotentiometer->GetVoltage());
+ SmartDashboard::PutNumber("Shooter Absolute Encoder Rounded", RobotMap::shooterPotentiometer->GetVoltageRound());
 
 
-	SmartDashboard::PutNumber("Shooter Actuator Motor", (double) RobotMap::shooterActuatorMotor->Get());
+ SmartDashboard::PutNumber("Shooter Actuator Motor", (double) RobotMap::shooterActuatorMotor->Get());
 
-	SmartDashboard::PutBoolean("Inverted Controls", inverted);
+ SmartDashboard::PutBoolean("Inverted Controls", inverted);
 
-	SmartDashboard::PutNumber("Left Shifter", RobotMap::shifterL->Get());
-	SmartDashboard::PutNumber("Right Shifter", RobotMap::shifterR->Get());
+ SmartDashboard::PutNumber("Left Shifter", RobotMap::shifterL->Get());
+ SmartDashboard::PutNumber("Right Shifter", RobotMap::shifterR->Get());
 
-	SmartDashboard::PutNumber("Rotation Speed", RobotMap::shooterRotateMotor->Get());
+ SmartDashboard::PutNumber("Rotation Speed", RobotMap::shooterRotateMotor->Get());
 
-	SmartDashboard::PutNumber("NavX Pitch (in degrees)", RobotMap::NavX->GetPitch());
-	SmartDashboard::PutNumber("NavX Roll (in degrees)", RobotMap::NavX->GetRoll());
-	SmartDashboard::PutNumber("NavX Yaw", (float) (RobotMap::NavX->GetYaw()));
+ SmartDashboard::PutNumber("NavX Pitch (in degrees)", RobotMap::NavX->GetPitch());
+ SmartDashboard::PutNumber("NavX Roll (in degrees)", RobotMap::NavX->GetRoll());
+ SmartDashboard::PutNumber("NavX Yaw", (float) (RobotMap::NavX->GetYaw()));
 }
 
 START_ROBOT_CLASS(Robot);

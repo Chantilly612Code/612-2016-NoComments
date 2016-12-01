@@ -1,21 +1,22 @@
+# 1 "./src/Subsystems/Shifter.cpp"
 #include "Shifter.h"
 #include "../RobotMap.h"
 
 Shifter::Shifter() :
-		Subsystem("Shifter")
+  Subsystem("Shifter")
 {
-	shifterL = RobotMap::shifterL;
-	shifterR = RobotMap::shifterR;
+ shifterL = RobotMap::shifterL;
+ shifterR = RobotMap::shifterR;
 }
 
 void Shifter::InitDefaultCommand() { }
 
 void Shifter::Set(float shiftPower)
 {
-	shifterL->Set(shiftPower);
-	shifterR->Set(shiftPower);
+ shifterL->Set(shiftPower);
+ shifterR->Set(shiftPower);
 }
 float Shifter::Get()
 {
-	 return (shifterL->Get() + shifterR->Get()) / 2;
+  return (shifterL->Get() + shifterR->Get()) / 2;
 }

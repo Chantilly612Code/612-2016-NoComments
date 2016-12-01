@@ -1,12 +1,6 @@
-/*
- * SerialIO.h
- *
- *  Created on: Jul 31, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/SerialIO.h"
 #ifndef SRC_SERIALIO_H_
-#define SRC_SERIALIO_H_
+#define SRC_SERIALIO_H_ 
 
 #include <WPILib.h>
 #include "IIOProvider.h"
@@ -25,7 +19,7 @@ class SerialIO : public IIOProvider {
     bool signal_transmit_integration_control;
     bool signal_retransmit_stream_config;
     bool stop;
-    uint8_t update_type; //IMUProtocol.MSGID_XXX
+    uint8_t update_type;
     uint8_t update_rate_hz;
     int byte_count;
     int update_count;
@@ -63,4 +57,4 @@ private:
     int DecodePacketHandler(char * received_data, int bytes_remaining);
 };
 
-#endif /* SRC_SERIALIO_H_ */
+#endif

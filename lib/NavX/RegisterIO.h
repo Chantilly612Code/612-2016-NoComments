@@ -1,12 +1,6 @@
-/*
- * RegisterIO.h
- *
- *  Created on: Jul 29, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/RegisterIO.h"
 #ifndef SRC_REGISTERIO_H_
-#define SRC_REGISTERIO_H_
+#define SRC_REGISTERIO_H_ 
 
 #include <stdint.h>
 #include "IIOProvider.h"
@@ -37,19 +31,19 @@ public:
     RegisterIO( IRegisterIO *io_provider,
                 uint8_t update_rate_hz,
                 IIOCompleteNotification *notify_sink,
-                IBoardCapabilities *board_capabilities  );
-    bool   IsConnected();
+                IBoardCapabilities *board_capabilities );
+    bool IsConnected();
     double GetByteCount();
     double GetUpdateCount();
-    void   SetUpdateRateHz(uint8_t update_rate);
-    void   ZeroYaw();
-    void   ZeroDisplacement();
-    void   Run();
-    void   Stop();
+    void SetUpdateRateHz(uint8_t update_rate);
+    void ZeroYaw();
+    void ZeroDisplacement();
+    void Run();
+    void Stop();
     virtual ~RegisterIO();
 private:
-    bool   GetConfiguration();
-    void   GetCurrentData();
+    bool GetConfiguration();
+    void GetCurrentData();
 };
 
-#endif /* SRC_REGISTERIO_H_ */
+#endif

@@ -1,31 +1,32 @@
+# 1 "./src/Commands/Drive/DriveSet.cpp"
 #include "DriveSet.h"
 
 DriveSet::DriveSet(float val1, float val2) :
-		Command()
+  Command()
 {
-	Requires(Robot::drivetrain.get());
+ Requires(Robot::drivetrain.get());
 
-	outputPower = val1;
-	curveSharpness = val2;
+ outputPower = val1;
+ curveSharpness = val2;
 }
 void DriveSet::Initialize() { }
 
 void DriveSet::Execute()
 {
-	Robot::drivetrain->SetManualDrive(outputPower, curveSharpness);
+ Robot::drivetrain->SetManualDrive(outputPower, curveSharpness);
 }
 
 bool DriveSet::IsFinished()
 {
-	return false;
+ return false;
 }
 
 void DriveSet::End()
 {
-	Robot::drivetrain->SetManualDrive(0.0f, 0.0f);
+ Robot::drivetrain->SetManualDrive(0.0f, 0.0f);
 }
 
 void DriveSet::Interrupted()
 {
-	Robot::drivetrain->SetManualDrive(0.0f,0.0f);
+ Robot::drivetrain->SetManualDrive(0.0f,0.0f);
 }

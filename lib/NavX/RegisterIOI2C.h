@@ -1,12 +1,6 @@
-/*
- * RegisterIOI2C.h
- *
- *  Created on: Jul 29, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/RegisterIOI2C.h"
 #ifndef SRC_REGISTERIOI2C_H_
-#define SRC_REGISTERIOI2C_H_
+#define SRC_REGISTERIOI2C_H_ 
 
 #include "RegisterIO.h"
 #include <WPILib.h>
@@ -23,4 +17,4 @@ private:
     I2C *port;
 };
 
-#endif /* SRC_REGISTERIOI2C_H_ */
+#endif

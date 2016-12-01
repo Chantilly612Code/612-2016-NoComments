@@ -1,60 +1,61 @@
+# 1 "./src/Commands/Drive/DriveDistance.cpp"
 #include "DriveDistance.h"
 #include "Robot.h"
 
-DriveDistance::DriveDistance(float end_distance) : PIDCommand("DriveDistance", 0.2, 0.0, 0.0) //default values
+DriveDistance::DriveDistance(float end_distance) : PIDCommand("DriveDistance", 0.2, 0.0, 0.0)
 {
-	Requires(Robot::drivetrain.get());
-	// TODO: Should this use both encoders?
-	RobotMap::driveEncoderL->Reset();
-	this->end_distance = end_distance;
+ Requires(Robot::drivetrain.get());
 
-	GetPIDController()->SetContinuous(true); //?
-	GetPIDController()->SetOutputRange(-1.0f, 1.0f);
-	GetPIDController()->SetPercentTolerance(0.05);
+ RobotMap::driveEncoderL->Reset();
+ this->end_distance = end_distance;
+
+ GetPIDController()->SetContinuous(true);
+ GetPIDController()->SetOutputRange(-1.0f, 1.0f);
+ GetPIDController()->SetPercentTolerance(0.05);
 }
 
 void DriveDistance::Initialize()
 {
-	GetPIDController()->SetSetpoint(end_distance); //point we are trying to get to
-	Robot::drivetrain->SetTankDrive(SPEED, SPEED);
-	GetPIDController()->SetInputRange(STARTING_DISTANCE, end_distance);
-	GetPIDController()->Enable();
+ GetPIDController()->SetSetpoint(end_distance);
+ Robot::drivetrain->SetTankDrive(SPEED, SPEED);
+ GetPIDController()->SetInputRange(STARTING_DISTANCE, end_distance);
+ GetPIDController()->Enable();
 
 }
 
 void DriveDistance::Execute()
 {
-	std::printf("PID Value: %f\n",  GetPIDController()->Get()); //debugging
+ std::printf("PID Value: %f\n", GetPIDController()->Get());
 }
 
 bool DriveDistance::IsFinished()
 {
-	return GetPIDController()->OnTarget();
+ return GetPIDController()->OnTarget();
 }
 
 void DriveDistance::End()
 {
-	// TODO: Should this use both encoders?
-	RobotMap::driveEncoderL->Reset();
-	Robot::drivetrain->SetTankDrive(0.0f, 0.0f);
 
-	GetPIDController()->Disable();
+ RobotMap::driveEncoderL->Reset();
+ Robot::drivetrain->SetTankDrive(0.0f, 0.0f);
+
+ GetPIDController()->Disable();
 }
 
 void DriveDistance::Interrupted()
 {
-	std::printf("ERROR: DriveDistance interrupted!\n");
-	Robot::drivetrain->SetTankDrive(0.0f, 0.0f);
+ std::printf("ERROR: DriveDistance interrupted!\n");
+ Robot::drivetrain->SetTankDrive(0.0f, 0.0f);
 
-	GetPIDController()->Disable();
+ GetPIDController()->Disable();
 }
 
 double DriveDistance::ReturnPIDInput()
 {
-	return Robot::drivetrain->GetEncoderDistance();
+ return Robot::drivetrain->GetEncoderDistance();
 }
 
 void DriveDistance::UsePIDOutput(double output)
 {
-	Robot::drivetrain->SetTankDrive(output, output);
+ Robot::drivetrain->SetTankDrive(output, output);
 }

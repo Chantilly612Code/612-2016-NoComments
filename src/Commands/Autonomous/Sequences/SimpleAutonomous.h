@@ -1,4 +1,5 @@
-#pragma once
+# 1 "./src/Commands/Autonomous/Sequences/SimpleAutonomous.h"
+       
 
 #include "Commands/CommandGroup.h"
 #include "Robot.h"
@@ -7,19 +8,19 @@
 class SimpleAutonomous: public CommandGroup
 {
 private:
-	float speed;
-	float original_speed;
-	float rotation = 0;
+ float speed;
+ float original_speed;
+ float rotation = 0;
 
-	const int THRESHOLD                  = 5; //degrees
-	const int MAX_YAW_ERROR              = 3; //degrees
-	const float TIMES_INCREMENT          = 1.005;
-	const float ADD_INCREMENT            = 0.01;
+ const int THRESHOLD = 5;
+ const int MAX_YAW_ERROR = 3;
+ const float TIMES_INCREMENT = 1.005;
+ const float ADD_INCREMENT = 0.01;
 public:
-	SimpleAutonomous(float time, float speed);
-	void Initialize();
-	void Execute();
-	bool IsFinished();
-	void End();
-	void Interrupted();
+ SimpleAutonomous(float time, float speed);
+ void Initialize();
+ void Execute();
+ bool IsFinished();
+ void End();
+ void Interrupted();
 };

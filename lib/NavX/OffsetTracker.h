@@ -1,12 +1,6 @@
-/*
- * OffsetTracker.h
- *
- *  Created on: Jul 30, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/OffsetTracker.h"
 #ifndef SRC_OFFSETTRACKER_H_
-#define SRC_OFFSETTRACKER_H_
+#define SRC_OFFSETTRACKER_H_ 
 
 class OffsetTracker {
     float *value_history;
@@ -25,4 +19,4 @@ private:
     double GetOffset();
 };
 
-#endif /* SRC_OFFSETTRACKER_H_ */
+#endif

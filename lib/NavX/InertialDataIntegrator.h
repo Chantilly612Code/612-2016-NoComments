@@ -1,12 +1,6 @@
-/*
- * InertialDataIntegrator.h
- *
- *  Created on: Jul 30, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/InertialDataIntegrator.h"
 #ifndef SRC_INERTIALDATAINTEGRATOR_H_
-#define SRC_INERTIALDATAINTEGRATOR_H_
+#define SRC_INERTIALDATAINTEGRATOR_H_ 
 
 class InertialDataIntegrator {
     float last_velocity[2];
@@ -25,4 +19,4 @@ public:
     float GetDisplacementZ() ;
 };
 
-#endif /* SRC_INERTIALDATAINTEGRATOR_H_ */
+#endif

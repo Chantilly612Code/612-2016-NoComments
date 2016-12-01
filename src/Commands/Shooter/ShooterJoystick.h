@@ -1,16 +1,17 @@
-#pragma once
+# 1 "./src/Commands/Shooter/ShooterJoystick.h"
+       
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 #include "Robot.h"
 class ShooterJoystick: public Command
 {
 public:
-	ShooterJoystick();
-	void Initialize();
-	void Execute();
-	bool IsFinished();
-	void End();
-	void Interrupted();
+ ShooterJoystick();
+ void Initialize();
+ void Execute();
+ bool IsFinished();
+ void End();
+ void Interrupted();
 private:
-	const float TOLERANCE = 0.1;
+ const float TOLERANCE = 0.1;
 };

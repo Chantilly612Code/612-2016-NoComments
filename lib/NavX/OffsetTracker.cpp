@@ -1,10 +1,4 @@
-/*
- * OffsetTracker.cpp
- *
- *  Created on: Jul 30, 2015
- *      Author: Scott
- */
-
+# 8 "./lib/NavX/OffsetTracker.cpp"
 #include "OffsetTracker.h"
 
 OffsetTracker::OffsetTracker(int history_length) {
@@ -52,5 +46,3 @@ double OffsetTracker::ApplyOffset( double value ) {
     }
     return offseted_value;
 }
-
-

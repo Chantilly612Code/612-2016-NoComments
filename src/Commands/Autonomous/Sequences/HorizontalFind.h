@@ -1,5 +1,6 @@
+# 1 "./src/Commands/Autonomous/Sequences/HorizontalFind.h"
 #ifndef FIND_TARGET_H
-#define FIND_TARGET_H
+#define FIND_TARGET_H 
 
 #include "Commands/Command.h"
 #include "WPILib.h"
@@ -9,17 +10,17 @@
 class HorizontalFind: public Command
 {
 public:
-	enum Direction {LEFT, RIGHT};
+ enum Direction {LEFT, RIGHT};
 
-	HorizontalFind(Direction d, float timeout = 0);
-	void Initialize();
-	void Execute();
-	bool IsFinished();
-	void End();
-	void Interrupted();
+ HorizontalFind(Direction d, float timeout = 0);
+ void Initialize();
+ void Execute();
+ bool IsFinished();
+ void End();
+ void Interrupted();
 
 private:
-	int dir;
+ int dir;
 
 };
 
